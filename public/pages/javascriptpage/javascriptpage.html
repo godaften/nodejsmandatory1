@@ -1,0 +1,106 @@
+<div class="page-header">
+  <h1>Javascript</h1> 
+  <div class="container text-center">
+    <p>Javascript is everything today... use it both csr and ssr.
+    </p>
+  </div>
+</div>
+<div class="spacer-3"></div>
+
+<div class="container bg-light padding-2 w-70percent">
+  <h2>NodeJS</h2>
+  <p class="text-center">Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.</br>
+    When installing NodeJS the Node Package Manager (npm) is also installed. <br>
+    Npm makes it very easy to install frameworks etc. from the terminal.
+  </p>
+  <div class="container w-70percent">
+  <h3>How to install NodeJS</h3>
+  <ul class="list-unstyled">
+    <li>1: Download the Windows installer from Nodejs.org.</li>
+    <li>2: Run the installer (the . msi file you downloaded in the previous step.)</li>
+    <li>3: Follow the prompts in the installer (Accept the license agreement, 
+      click the NEXT button a bunch of times and accept the default installation settings).</li>
+    <li>3:  Restart your computer.</li>
+  </ul>
+  </div>
+</div>
+
+<div class="spacer-3"></div>
+
+  <div class="container bg-light padding-2 w-70percent">
+    <h2>Express JS</h2>
+    <p class="text-center">Express. js is a free and open-source web application framework for Node. js. 
+      It is used for designing and building web applications quickly and easily.</p>
+    <div class="container w-70percent">
+    <h3>How to install Express JS</h3>
+    <ul class="list-unstyled">
+      <li>1: With Node already installed, create a folder / directory and make sure to cd to it.</li>
+      <li>2: Run npm init from the terminal to create a package.json file. It will prompt for a several things. 
+        Hit ENTER to accept. Concider naming the main file app.js.
+      </li>
+      <div class="container codeblock">
+        <code>
+            npm init
+        </code>
+      </div>
+      <li>3: Install Express in your chosen directory.</li>
+      <div class="container codeblock">
+        <code>
+          npm install express
+        </code>
+      </div>
+    </ul>
+    </div>
+  </div>
+  <div class="spacer-2"></div>
+
+
+<div class="container w-70percent">
+  <h3>Setting up express app.js with 5 pages, navigation and footer</h3>
+  <div class="container bg-dark text-white">
+      <pre><code>
+        const express = require("express");
+        const app = express();
+        
+        app.use(express.static("public"));
+        
+        const fs = require("fs");
+
+        const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html").toString();
+        const htmlpage = fs.readFileSync("./public/pages/htmlpage/htmlpage.html").toString();
+        const csspage = fs.readFileSync("./public/pages/csspage/csspage.html").toString();
+        const javascriptpage = fs.readFileSync("./public/pages/javascriptpage/javascriptpage.html").toString();
+        const toolspage = fs.readFileSync("./public/pages/toolspage/toolspage.html").toString();
+        
+        const frontpagePage = nav.replace("%%DOCUMENT_TITLE%%", "Home") + frontpage + footer;
+        const htmlPage = nav.replace("%%DOCUMENT_TITLE%%", "Html") + htmlpage + footer;
+        const cssPage = nav.replace("%%DOCUMENT_TITLE%%", "Css") + csspage + footer;
+        const javascriptPage = nav.replace("%%DOCUMENT_TITLE%%", "Javascript") + javascriptpage + footer;
+        const toolsPage = nav.replace("%%DOCUMENT_TITLE%%", "Tools") + toolspage + footer;
+
+        app.get("/", (req, res) => {
+          res.send(frontpagePage);
+        });
+      
+        app.get("/htmlpage", (req, res) => {
+          res.send(htmlPage)
+        });
+      
+        app.get("/csspage", (req, res) => {
+          res.send(cssPage)
+        });
+      
+        app.get("/javascriptpage", (req, res) => {
+          res.send(javascriptPage)
+        });
+      
+        app.get("/toolspage", (req, res) => {
+          res.send(toolsPage)
+        });
+
+        app.listen(3000, () => console.log("Server is running on", 3000));
+
+      </code></pre>
+  </div>
+</div>
+
