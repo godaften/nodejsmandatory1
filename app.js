@@ -26,13 +26,6 @@ const cssPage = nav.replace("%%DOCUMENT_TITLE%%", "Css") + csspage + footer;
 const javascriptPage = nav.replace("%%DOCUMENT_TITLE%%", "Javascript") + javascriptpage + footer;
 const toolsPage = nav.replace("%%DOCUMENT_TITLE%%", "Tools") + toolspage + footer;
 
-const nodejsPage = nav.replace("%%DOCUMENT_TITLE%%", "Home") + nodejspage + footer;
-const sveltePage = nav.replace("%%DOCUMENT_TITLE%%", "Home") + sveltepage + footer;
-const expressPage = nav.replace("%%DOCUMENT_TITLE%%", "Express") + expresspage + footer;
-const contactPage = nav.replace("%%DOCUMENT_TITLE%%", "Contact") + contactpage + footer;
-
-
-
 app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
@@ -52,25 +45,5 @@ app.get("/javascriptpage", (req, res) => {
 app.get("/toolspage", (req, res) => {
     res.send(toolsPage)
 });
-
-app.get("/expresspage", (req, res) => {
-    res.send(expressPage)
-});
-
-app.get("/contactpage", (req, res) => {
-    res.send(contactPage)
-});
-
-app.get("/nodejspage", (req, res) => {
-    res.send(nodejsPage)
-});
-
-app.get("/sveltepage", (req, res) => {
-    res.send(sveltePage)
-});
-
-
-
-
 
 app.listen(3000, () => console.log("Server is running on", 3000));
