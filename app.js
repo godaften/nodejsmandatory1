@@ -15,11 +15,6 @@ const csspage = fs.readFileSync("./public/pages/csspage/csspage.html").toString(
 const javascriptpage = fs.readFileSync("./public/pages/javascriptpage/javascriptpage.html").toString();
 const toolspage = fs.readFileSync("./public/pages/toolspage/toolspage.html").toString();
 
-const contactpage = fs.readFileSync("./public/pages/contactpage/contactpage.html").toString();
-const nodejspage = fs.readFileSync("./public/pages/nodejspage/nodejspage.html").toString();
-const sveltepage = fs.readFileSync("./public/pages/sveltepage/sveltepage.html").toString();
-const expresspage = fs.readFileSync("./public/pages/expresspage/expresspage.html").toString();
-
 const frontpagePage = nav.replace("%%DOCUMENT_TITLE%%", "Home") + frontpage + footer;
 const htmlPage = nav.replace("%%DOCUMENT_TITLE%%", "Html") + htmlpage + footer;
 const cssPage = nav.replace("%%DOCUMENT_TITLE%%", "Css") + csspage + footer;
